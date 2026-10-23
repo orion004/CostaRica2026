@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costa Rica 2026: Family Adventure & Beach Itinerary</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Plus Jakarta Sans & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jungle: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            600: '#16a34a',
+                            800: '#166534',
+                            900: '#14532d',
+                            950: '#052e16',
+                        },
+                        ocean: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        sand: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .dark-glass {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(5, 46, 22, 0.88) 0%, rgba(12, 74, 110, 0.82) 100%),
+                        url('https://images.unsplash.com/photo-1518259102261-b40117eabbc9?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-ocean-500 selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT / QUICK CONFIRMATION BAR -->
+    <header class="bg-slate-900 text-slate-200 text-xs py-2 px-4 border-b border-slate-800 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="font-bold text-amber-400 flex items-center gap-1.5">
+                    <i class="fa-solid fa-plane-departure"></i> COSTA RICA 2026
+                </span>
+                <span class="hidden sm:inline text-slate-400">|</span>
+                <span class="hidden sm:inline"><i class="fa-solid fa-users text-ocean-500"></i> Duenas Family (Chris, Jamie, Jackson [8], Charlotte [6])</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="bg-slate-800 px-2.5 py-0.5 rounded text-slate-300 font-mono border border-slate-700">
+                    UA Conf: <strong class="text-white">LKEKMK</strong>
+                </span>
+                <span class="bg-slate-800 px-2.5 py-0.5 rounded text-slate-300 font-mono border border-slate-700">
+                    Costco: <strong class="text-white">#C494516048</strong>
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO HEADER -->
+    <div class="hero-gradient text-white py-12 px-4 sm:px-6 lg:px-8 shadow-xl">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-md border border-emerald-400/30 text-emerald-200 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    <i class="fa-solid fa-compass animate-spin" style="animation-duration: 12s;"></i> Official Family Trip Portal
+                </div>
+                <h1 class="font-serif text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-2">
+                    Costa Rica 2026
+                </h1>
+                <p class="text-slate-200 text-base sm:text-lg max-w-2xl font-medium">
+                    11-Day Mountain Volcano &amp; All-Inclusive Ocean Resort Expedition
+                </p>
+                <div class="mt-4 flex flex-wrap gap-4 text-xs font-medium text-slate-300">
+                    <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar-check text-amber-400"></i> Dec 4 – Dec 14, 2026</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-mountain-sun text-emerald-400"></i> Buena Vista del Rincón (4 Nights)</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-umbrella-beach text-ocean-400"></i> Westin Reserva Conchal (6 Nights)</span>
+                </div>
+            </div>
+            
+            <!-- Quick Weather & Emergency Widget -->
+            <div class="dark-glass rounded-2xl p-4 w-full md:w-auto min-w-[260px] text-xs space-y-2">
+                <div class="flex justify-between items-center text-slate-300 font-semibold border-b border-slate-700/60 pb-2">
+                    <span><i class="fa-solid fa-cloud-sun text-amber-400"></i> Guanacaste Dec Weather</span>
+                    <span class="text-emerald-400">Dry Season</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-slate-300">
+                    <div>
+                        <span class="text-slate-400 block text-[10px]">TEMP RANGE</span>
+                        <span class="font-bold text-white text-sm">75°F - 89°F</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block text-[10px]">PACKING TIP</span>
+                        <span class="font-bold text-white">Layers + Bug Spray</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN INTERACTIVE CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+
+        <!-- TAB NAVIGATION SYSTEM -->
+        <nav class="flex space-x-2 bg-slate-200/80 p-1.5 rounded-2xl mb-8 overflow-x-auto shadow-inner text-xs sm:text-sm font-semibold text-slate-600 no-scrollbar" id="tab-nav">
+            <button onclick="switchTab('master')" id="tab-master" class="tab-btn active-tab flex-1 min-w-[140px] py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all">
+                <i class="fa-solid fa-globe"></i> <span>Master Overview</span>
+            </button>
+            <button onclick="switchTab('buena-vista')" id="tab-buena-vista" class="tab-btn flex-1 min-w-[150px] py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all">
+                <i class="fa-solid fa-volcano text-emerald-600"></i> <span>Buena Vista (Volcano)</span>
+            </button>
+            <button onclick="switchTab('westin')" id="tab-westin" class="tab-btn flex-1 min-w-[150px] py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all">
+                <i class="fa-solid fa-water text-ocean-600"></i> <span>Westin Conchal (Beach)</span>
+            </button>
+            <button onclick="switchTab('packing')" id="tab-packing" class="tab-btn flex-1 min-w-[150px] py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all">
+                <i class="fa-solid fa-list-check text-amber-600"></i> <span>Packing &amp; Checklist</span>
+            </button>
+            <button onclick="switchTab('map-contacts')" id="tab-map-contacts" class="tab-btn flex-1 min-w-[140px] py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all">
+                <i class="fa-solid fa-map-location-dot text-rose-600"></i> <span>Map &amp; Contacts</span>
+            </button>
+        </nav>
+
+        <!-- ==================== VIEW 1: MASTER OVERVIEW ==================== -->
+        <div id="view-master" class="tab-content space-y-8">
+            
+            <!-- Quick Flight & Stay Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Flight Summary Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200 hover:shadow-lg transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded-full uppercase">Flights</span>
+                        <i class="fa-solid fa-plane text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">United Airlines</h3>
+                    <p class="text-xs text-slate-500 mb-3">Confirmation: <span class="font-mono font-bold text-slate-800">LKEKMK</span></p>
+                    <div class="space-y-3 text-xs border-t border-slate-100 pt-3">
+                        <div>
+                            <span class="text-slate-400 font-bold block">OUTBOUND (DEC 4)</span>
+                            <p class="font-semibold text-slate-700">BOI → DEN → LIR (Arrives 4:10 PM)</p>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 font-bold block">INBOUND (DEC 14)</span>
+                            <p class="font-semibold text-slate-700">LIR → DEN → BOI (Arrives 9:27 PM)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leg 1 Hotel Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-emerald-100 hover:shadow-lg transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full uppercase">Leg 1 • Dec 4 - 8</span>
+                        <i class="fa-solid fa-mountain text-emerald-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">Buena Vista del Rincón</h3>
+                    <p class="text-xs text-slate-500 mb-3">Rincón de la Vieja Volcano Region</p>
+                    <div class="text-xs space-y-2 border-t border-slate-100 pt-3 text-slate-600">
+                        <p><i class="fa-solid fa-bed text-emerald-600 mr-1.5"></i> Eco Adventure Lodge (4 Nights)</p>
+                        <p><i class="fa-solid fa-utensils text-emerald-600 mr-1.5"></i> Full Board / Breakfast Included</p>
+                        <p><i class="fa-solid fa-person-hiking text-emerald-600 mr-1.5"></i> Hot springs, Canopy &amp; Waterslide</p>
+                    </div>
+                </div>
+
+                <!-- Leg 2 Hotel Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-ocean-100 hover:shadow-lg transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-ocean-100 text-ocean-800 text-xs font-bold px-2.5 py-1 rounded-full uppercase">Leg 2 • Dec 8 - 14</span>
+                        <i class="fa-solid fa-umbrella-beach text-ocean-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">Westin Reserva Conchal</h3>
+                    <p class="text-xs text-slate-500 mb-3">Costco Travel Ref: <span class="font-mono font-bold text-slate-800">#C494516048</span></p>
+                    <div class="text-xs space-y-2 border-t border-slate-100 pt-3 text-slate-600">
+                        <p><i class="fa-solid fa-star text-amber-500 mr-1.5"></i> All-Inclusive Family Club Suite</p>
+                        <p><i class="fa-solid fa-spa text-ocean-600 mr-1.5"></i> $100 Resort Credit + Kids Club</p>
+                        <p><i class="fa-solid fa-car text-ocean-600 mr-1.5"></i> Costco Destination Services Transfers</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FILTERABLE FULL TIMELINE SECTION -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 pb-4 border-b border-slate-100">
+                    <div>
+                        <h2 class="text-2xl font-serif font-bold text-slate-900">11-Day Master Chronological Schedule</h2>
+                        <p class="text-slate-500 text-sm">Click any day card to expand details or filter by category</p>
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div class="flex flex-wrap gap-1.5 text-xs font-semibold" id="category-filters">
+                        <button onclick="filterCategory('all')" class="filter-btn active-filter px-3 py-1.5 rounded-lg border transition">All Days</button>
+                        <button onclick="filterCategory('transit')" class="filter-btn px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 transition"><i class="fa-solid fa-plane text-blue-500 mr-1"></i> Transit</button>
+                        <button onclick="filterCategory('adventure')" class="filter-btn px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 transition"><i class="fa-solid fa-tree text-emerald-500 mr-1"></i> Adventure</button>
+                        <button onclick="filterCategory('relax')" class="filter-btn px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 transition"><i class="fa-solid fa-spa text-ocean-500 mr-1"></i> Relax &amp; Pool</button>
+                        <button onclick="filterCategory('dining')" class="filter-btn px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 transition"><i class="fa-solid fa-utensils text-amber-500 mr-1"></i> Special Dining</button>
+                    </div>
+                </div>
+
+                <!-- Master Timeline Grid -->
+                <div class="space-y-4" id="master-timeline-container">
+                    <!-- Day Cards will be rendered dynamically via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== VIEW 2: BUENA VISTA ==================== -->
+        <div id="view-buena-vista" class="tab-content hidden space-y-8">
+            <div class="bg-gradient-to-r from-emerald-900 to-jungle-800 rounded-3xl p-6 sm:p-8 text-white shadow-lg relative overflow-hidden">
+                <div class="relative z-10 max-w-3xl">
+                    <span class="bg-emerald-500/30 border border-emerald-400/30 text-emerald-200 text-xs font-bold px-3 py-1 rounded-full uppercase">Leg 1 • Rainforest &amp; Volcano</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-3 mb-2">Buena Vista del Rincón Eco Adventure Park</h2>
+                    <p class="text-emerald-100 text-sm sm:text-base mb-4">
+                        Nestled along the slopes of Rincón de la Vieja Volcano. Experience canopy zip-lines, natural thermal hot springs, volcanic mud, and jungle slides.
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-xs font-medium text-emerald-200">
+                        <span><i class="fa-solid fa-location-dot text-emerald-400"></i> Guanacaste Highlands</span>
+                        <span><i class="fa-solid fa-hotel text-emerald-400"></i> Confirmation: Lodge Reservation Direct</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buena Vista Daily Schedule Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="buena-vista-days">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+
+        <!-- ==================== VIEW 3: WESTIN RESERVA CONCHAL ==================== -->
+        <div id="view-westin" class="tab-content hidden space-y-8">
+            <div class="bg-gradient-to-r from-ocean-900 to-sky-800 rounded-3xl p-6 sm:p-8 text-white shadow-lg relative overflow-hidden">
+                <div class="relative z-10 max-w-3xl">
+                    <span class="bg-sky-500/30 border border-sky-400/30 text-sky-200 text-xs font-bold px-3 py-1 rounded-full uppercase">Leg 2 • Luxury All-Inclusive Resort</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-3 mb-2">The Westin Reserva Conchal Golf Resort &amp; Spa</h2>
+                    <p class="text-sky-100 text-sm sm:text-base mb-4">
+                        2,400 acres of paradise set along the crushed shell shores of Playa Conchal. All-inclusive luxury with Westin Family Lounge access and lagoon pool.
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-xs font-medium text-sky-200">
+                        <span><i class="fa-solid fa-ticket text-amber-400"></i> Costco Package: #C494516048</span>
+                        <span><i class="fa-solid fa-concierge-bell text-sky-300"></i> Family Club Suite</span>
+                        <span><i class="fa-solid fa-gift text-amber-400"></i> $100 Resort Credit</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Westin Daily Schedule Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="westin-days">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+
+        <!-- ==================== VIEW 4: PACKING & CHECKLIST ==================== -->
+        <div id="view-packing" class="tab-content hidden space-y-8">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                    <div>
+                        <h2 class="text-2xl font-serif font-bold text-slate-900">Interactive Family Packing Checklist</h2>
+                        <p class="text-slate-500 text-sm">Track packed items for Chris, Jamie, Jackson, and Charlotte</p>
+                    </div>
+                    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 w-full sm:w-auto text-center sm:text-right">
+                        <span class="text-xs font-bold text-amber-800 uppercase block">Packing Progress</span>
+                        <div class="flex items-center gap-3 mt-1">
+                            <div class="w-48 bg-slate-200 rounded-full h-3 overflow-hidden">
+                                <div id="packing-progress-bar" class="bg-amber-500 h-full w-0 transition-all duration-500"></div>
+                            </div>
+                            <span id="packing-percentage" class="font-bold text-amber-900 text-sm">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="packing-categories-container">
+                    <!-- Categories rendered via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== VIEW 5: MAP & KEY CONTACTS ==================== -->
+        <div id="view-map-contacts" class="tab-content hidden space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Contacts Section -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                        <h3 class="font-serif font-bold text-lg text-slate-900 mb-4 border-b border-slate-100 pb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-address-book text-rose-600"></i> Key Emergency Contacts
+                        </h3>
+                        <div class="space-y-4 text-xs">
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <span class="font-bold text-slate-800 block text-sm">Costco Destination Services</span>
+                                <p class="text-slate-500 mb-1">Local In-Country Transfers &amp; Support</p>
+                                <p class="font-mono text-slate-700"><i class="fa-solid fa-phone text-emerald-600 mr-1"></i> +506 8666-2328</p>
+                                <p class="font-mono text-slate-700"><i class="fa-solid fa-phone-volume text-rose-600 mr-1"></i> 24/7 Helpline: +506 8917-2223</p>
+                            </div>
+
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <span class="font-bold text-slate-800 block text-sm">Westin Reserva Conchal</span>
+                                <p class="text-slate-500 mb-1">Front Desk / Concierge Desk</p>
+                                <p class="font-mono text-slate-700"><i class="fa-solid fa-phone text-emerald-600 mr-1"></i> +506 2654-3500</p>
+                            </div>
+
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <span class="font-bold text-slate-800 block text-sm">Buena Vista del Rincón</span>
+                                <p class="text-slate-500 mb-1">Adventure Park Reception</p>
+                                <p class="font-mono text-slate-700"><i class="fa-solid fa-phone text-emerald-600 mr-1"></i> +506 2690-2000</p>
+                            </div>
+
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <span class="font-bold text-slate-800 block text-sm">Western Executive Limousine</span>
+                                <p class="text-slate-500 mb-1">Boise Airport Transfers (Res #10175)</p>
+                                <p class="font-mono text-slate-700"><i class="fa-solid fa-phone text-emerald-600 mr-1"></i> (208) 991-8888</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Document Checklist -->
+                    <div class="bg-amber-50 rounded-2xl p-6 border border-amber-200">
+                        <h4 class="font-bold text-amber-900 text-sm mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-passport text-amber-700"></i> Essential Travel Documents
+                        </h4>
+                        <ul class="text-xs text-amber-800 space-y-1.5 list-disc list-inside">
+                            <li>Passports (valid at least 1 day beyond departure)</li>
+                            <li>Costa Rica Health/Customs QR digital form</li>
+                            <li>United Mobile Boarding Passes</li>
+                            <li>Costco Voucher Confirmation PDF</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Interactive Region Guide / Route Map Summary -->
+                <div class="lg:col-span-2 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-serif font-bold text-lg text-slate-900 mb-4 border-b border-slate-100 pb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-map text-ocean-600"></i> Guanacaste Route &amp; Locations
+                        </h3>
+                        
+                        <!-- Travel Route Visualizer -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-center">
+                                <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded-full">AIRPORT</span>
+                                <h4 class="font-bold text-slate-800 text-sm mt-2">Liberia Airport (LIR)</h4>
+                                <p class="text-slate-500 text-xs mt-1">Guanacaste Airport Entry</p>
+                            </div>
+
+                            <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-center">
+                                <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full">LEG 1 • 1 hr transfer</span>
+                                <h4 class="font-bold text-emerald-900 text-sm mt-2">Buena Vista del Rincón</h4>
+                                <p class="text-emerald-700 text-xs mt-1">Rincón de la Vieja Slopes</p>
+                            </div>
+
+                            <div class="bg-ocean-50 border border-ocean-200 p-4 rounded-xl text-center">
+                                <span class="bg-ocean-100 text-ocean-800 text-[10px] font-bold px-2 py-0.5 rounded-full">LEG 2 • 1.5 hr transfer</span>
+                                <h4 class="font-bold text-ocean-900 text-sm mt-2">Playa Conchal</h4>
+                                <p class="text-ocean-700 text-xs mt-1">Pacific Gold Coast Beach</p>
+                            </div>
+                        </div>
+
+                        <!-- Area Description Cards -->
+                        <div class="space-y-4 text-xs text-slate-600">
+                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                                <h5 class="font-bold text-slate-800 text-sm mb-1"><i class="fa-solid fa-mountain text-emerald-600 mr-2"></i>Rincón de la Vieja Volcano Foothills</h5>
+                                <p>Characterized by tropical dry forest, volcanic steam vents, sulfur springs, and river waterfalls. Temperatures are slightly cooler in the mornings and evenings.</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                                <h5 class="font-bold text-slate-800 text-sm mb-1"><i class="fa-solid fa-umbrella-beach text-ocean-600 mr-2"></i>Playa Conchal &amp; Brasilito Bay</h5>
+                                <p>World-famous beach made of millions of tiny crushed seashells. Calm ocean waters ideal for family swimming, stand-up paddleboarding, and snorkeling.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-slate-900 text-slate-300 rounded-xl text-xs flex justify-between items-center">
+                        <span>Need driver coordination during transfer?</span>
+                        <a href="tel:+50686662328" class="bg-ocean-600 text-white font-bold px-3 py-1.5 rounded-lg hover:bg-ocean-500 transition">Call Costco Rep</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-8 px-4 sm:px-6 lg:px-8 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+            <div>
+                <p class="font-bold text-slate-200">Costa Rica 2026 Family Adventure &amp; Beach Itinerary</p>
+                <p class="text-slate-500 mt-0.5">Prepared for Chris &amp; Jamie Duenas • Jackson (8) &amp; Charlotte (6)</p>
+            </div>
+            <div class="flex items-center space-x-4 text-slate-400">
+                <span>UA: LKEKMK</span>
+                <span>•</span>
+                <span>Costco: #C494516048</span>
+                <span>•</span>
+                <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-check-double"></i> All Confirmed</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT APPLICATION LOGIC -->
+    <script>
+        // TRIPS DATA STRUCTURE
+        const itineraryData = [
+            {
+                dayNum: 1,
+                dateStr: "Friday, Dec 4, 2026",
+                title: "Departure & Arrival in Rainforest Paradise",
+                location: "Transit / Buena Vista",
+                resort: "Buena Vista del Rincón",
+                category: "transit",
+                summary: "Fly BOI -> DEN -> LIR. Transfer to mountain lodge.",
+                details: [
+                    { time: "05:00 AM", text: "Western Executive Limousine pick-up at home (Boise)." },
+                    { time: "07:00 AM", text: "Flight UA 2176: BOI -> DEN (Departs 7:00 AM)." },
+                    { time: "11:15 AM", text: "Flight UA 1622: DEN -> LIR (Departs 11:15 AM)." },
+                    { time: "04:10 PM", text: "Arrive at Guanacaste Airport (LIR), Liberia, Costa Rica." },
+                    { time: "05:00 PM", text: "Meet private van driver & transfer to Buena Vista del Rincón (~1 hour)." },
+                    { time: "06:30 PM", text: "Check-in, dinner at lodge restaurant, and relaxation." }
+                ]
+            },
+            {
+                dayNum: 2,
+                dateStr: "Saturday, Dec 5, 2026",
+                title: "Canopy Zipline, Horseback & Jungle Slide",
+                location: "Buena Vista del Rincón",
+                resort: "Buena Vista del Rincón",
+                category: "adventure",
+                summary: "Full day of rainforest thrills and iconic 400m waterslide.",
+                details: [
+                    { time: "07:30 AM", text: "Tropical buffet breakfast with Costa Rican coffee." },
+                    { time: "09:00 AM", text: "Canopy Zipline Tour across primary rainforest canyons." },
+                    { time: "11:30 AM", text: "Horseback trail ride through mountain paths to the waterslide." },
+                    { time: "12:30 PM", text: "Ride the famous 400-meter (1,300 ft) Jungle Waterslide!" },
+                    { time: "01:30 PM", text: "Traditional Costa Rican lunch at the lodge." },
+                    { time: "04:00 PM", text: "Afternoon pool time and rainforest bird watching." },
+                    { time: "06:30 PM", text: "Dinner at lodge restaurant." }
+                ]
+            },
+            {
+                dayNum: 3,
+                dateStr: "Sunday, Dec 6, 2026",
+                title: "Pacaya Thermal Hot Springs & Volcanic Mud",
+                location: "Buena Vista del Rincón",
+                resort: "Buena Vista del Rincón",
+                category: "relax",
+                summary: "Soak in natural thermal hot springs and volcanic mud baths.",
+                details: [
+                    { time: "08:00 AM", text: "Breakfast at the main restaurant." },
+                    { time: "09:30 AM", text: "Tractor-drawn wagon ride or walk to Pacaya Hot Springs." },
+                    { time: "10:30 AM", text: "Apply volcanic mud, dry under the sun, and soak in 5 natural thermal pools." },
+                    { time: "01:00 PM", text: "Lunch by the hot springs facility." },
+                    { time: "03:30 PM", text: "Return to main lodge pool; kids splash time." },
+                    { time: "06:30 PM", text: "Dinner and starry mountain night relaxation." }
+                ]
+            },
+            {
+                dayNum: 4,
+                dateStr: "Monday, Dec 7, 2026",
+                title: "Waterfall Hike, Farm Tour & Coffee Tasting",
+                location: "Buena Vista del Rincón",
+                resort: "Buena Vista del Rincón",
+                category: "adventure",
+                summary: "Catarata Palenciana hike, farm animals, coffee & sugarcane.",
+                details: [
+                    { time: "08:00 AM", text: "Breakfast." },
+                    { time: "09:00 AM", text: "Guided hike along suspension bridges to Catarata Palenciana Waterfall." },
+                    { time: "11:30 AM", text: "Trapiche Organic Farm Tour: Sugarcane pressing & artisan coffee tasting." },
+                    { time: "01:00 PM", text: "Lunch at lodge." },
+                    { time: "03:00 PM", text: "Pack & prepare for tomorrow's transfer to the coast." },
+                    { time: "06:30 PM", text: "Farewell mountain dinner." }
+                ]
+            },
+            {
+                dayNum: 5,
+                dateStr: "Tuesday, Dec 8, 2026",
+                title: "Transfer to Ocean Paradise & Westin Check-In",
+                location: "Buena Vista -> Westin Conchal",
+                resort: "Westin Reserva Conchal",
+                category: "transit",
+                summary: "Check out mountain lodge, private transfer ($170), ocean resort check-in.",
+                details: [
+                    { time: "08:30 AM", text: "Final mountain breakfast & easy check-out." },
+                    { time: "12:30 PM", text: "Private Inter-Hotel Transfer pick-up ($170 direct payment)." },
+                    { time: "02:30 PM", text: "Arrive at The Westin Reserva Conchal. Check-in at Family Club Lounge." },
+                    { time: "03:30 PM", text: "Settle into Family Club Suite & splash in the massive Lagoon Pool." },
+                    { time: "06:30 PM", text: "Welcome dinner at Mitra Buffet or Caracola Grill." }
+                ]
+            },
+            {
+                dayNum: 6,
+                dateStr: "Wednesday, Dec 9, 2026",
+                title: "Playa Conchal Shell Beach & Snorkeling",
+                location: "Playa Conchal",
+                resort: "Westin Reserva Conchal",
+                category: "relax",
+                summary: "Explore world-famous crushed-shell beach and crystal waters.",
+                details: [
+                    { time: "08:00 AM", text: "Family Club Lounge breakfast." },
+                    { time: "09:30 AM", text: "Beach day on Playa Conchal! Shell hunting with kids & fish snorkeling." },
+                    { time: "01:00 PM", text: "Poolside lunch at Caracola Grill." },
+                    { time: "03:00 PM", text: "Westin Kids Club activities for Jackson & Charlotte." },
+                    { time: "06:30 PM", text: "A la carte dinner at Fuego Latin Fusion (reservations recommended)." }
+                ]
+            },
+            {
+                dayNum: 7,
+                dateStr: "Thursday, Dec 10, 2026",
+                title: "Heavenly Spa Day & Fine Dining",
+                location: "Westin Reserva Conchal",
+                resort: "Westin Reserva Conchal",
+                category: "dining",
+                summary: "Use $100 Resort Credit at Heavenly Spa while kids enjoy Kids Club.",
+                details: [
+                    { time: "08:30 AM", text: "Breakfast." },
+                    { time: "10:30 AM", text: "Parents Heavenly Spa treatments (Use $100 Resort Credit)." },
+                    { time: "10:30 AM", text: "Jackson & Charlotte at Westin Kids Club supervised crafts." },
+                    { time: "01:30 PM", text: "Family pool lunch & fresh tropical smoothies." },
+                    { time: "04:30 PM", text: "Beach sunset walk & coconut drinks." },
+                    { time: "06:30 PM", text: "Dinner at Spirula Wood Oven Pizza & Trattoria." }
+                ]
+            },
+            {
+                dayNum: 8,
+                dateStr: "Friday, Dec 11, 2026",
+                title: "Optional Sunset Catamaran Cruise / Ocean Fun",
+                location: "Playa Conchal / Pacific Coast",
+                resort: "Westin Reserva Conchal",
+                category: "adventure",
+                summary: "Sailing, snorkeling with sea turtles/dolphins, or tide pool exploring.",
+                details: [
+                    { time: "08:30 AM", text: "Breakfast." },
+                    { time: "10:00 AM", text: "Kayaking or stand-up paddleboarding on calm bay waters." },
+                    { time: "01:30 PM", text: "Optional Sunset Catamaran Sailing Tour (Snorkeling & drinks on board)." },
+                    { time: "06:00 PM", text: "Return to resort at sunset." },
+                    { time: "07:00 PM", text: "Dinner at Manglar Asian Fusion." }
+                ]
+            },
+            {
+                dayNum: 9,
+                dateStr: "Saturday, Dec 12, 2026",
+                title: "Resort Golf, Putting & Ultimate Lagoon Pool Day",
+                location: "Westin Reserva Conchal",
+                resort: "Westin Reserva Conchal",
+                category: "relax",
+                summary: "Family golf putting, hydro-massage pool lounger relaxation.",
+                details: [
+                    { time: "08:30 AM", text: "Breakfast in Family Lounge." },
+                    { time: "09:30 AM", text: "Family putting green session / Golf course walking views." },
+                    { time: "11:30 AM", text: "Lagoon pool hydro-massage jets & poolside games." },
+                    { time: "01:00 PM", text: "Taco & burger bar lunch." },
+                    { time: "04:00 PM", text: "Ice cream treats in the Family Lounge." },
+                    { time: "06:30 PM", text: "Dinner at Bamboo Restaurant." }
+                ]
+            },
+            {
+                dayNum: 10,
+                dateStr: "Sunday, Dec 13, 2026",
+                title: "Final Beach Day & Tamarindo Souvenir Visit",
+                location: "Playa Conchal / Tamarindo",
+                resort: "Westin Reserva Conchal",
+                category: "dining",
+                summary: "Souvenir shopping, last ocean dip, and farewell dinner.",
+                details: [
+                    { time: "08:30 AM", text: "Breakfast." },
+                    { time: "10:00 AM", text: "Final beach swim and crushed shell collecting." },
+                    { time: "02:00 PM", text: "Quick taxi excursion to Tamarindo or Brasilito for artisan souvenirs." },
+                    { time: "06:30 PM", text: "Special Farewell Family Dinner at resort." }
+                ]
+            },
+            {
+                dayNum: 11,
+                dateStr: "Monday, Dec 14, 2026",
+                title: "Check-Out & Homeward Flight to Boise",
+                location: "Westin -> LIR -> BOI",
+                resort: "Transit",
+                category: "transit",
+                summary: "Costco transfer to LIR airport, flight UA 1515 / 2603 home.",
+                details: [
+                    { time: "09:00 AM", text: "Final resort breakfast & leisurely pack." },
+                    { time: "12:00 PM", text: "Resort Check-out." },
+                    { time: "03:30 PM", text: "Costco Destination Services private van transfer to LIR Airport." },
+                    { time: "05:15 PM", text: "Flight UA 1515: LIR -> DEN (Departs 5:15 PM)." },
+                    { time: "09:27 PM", text: "Arrive Boise (BOI) via UA 2603. Western Executive Limousine home!" }
+                ]
+            }
+        ];
+
+        // PACKING DATA STRUCTURE
+        const packingData = [
+            {
+                category: "Checked Bags (Duenas Family)",
+                icon: "fa-suitcase-rolling",
+                items: [
+                    { id: "p1", name: "Passports (All 4)", checked: true },
+                    { id: "p2", name: "Sunscreen (Reef Safe, SPF 50+)", checked: false },
+                    { id: "p3", name: "Insect Repellent (Picaridin / DEET)", checked: false },
+                    { id: "p4", name: "Hiking shoes / Trail sneakers (Kids & Adults)", checked: false },
+                    { id: "p5", name: "Water shoes with rubber soles", checked: false },
+                    { id: "p6", name: "Swimsuits (3 sets per person)", checked: false },
+                    { id: "p7", name: "Rashguards (UV protection for Jackson/Charlotte)", checked: false },
+                ]
+            },
+            {
+                category: "Rainforest & Adventure Gear",
+                icon: "fa-tree",
+                items: [
+                    { id: "p8", name: "Lightweight quick-dry shirts/shorts", checked: false },
+                    { id: "p9", name: "Light rain jackets / ponchos", checked: false },
+                    { id: "p10", name: "Closed-toe shoes for ziplining", checked: false },
+                    { id: "p11", name: "Small waterproof dry bag", checked: false },
+                    { id: "p12", name: "Goggles for kids hot spring pools", checked: false },
+                ]
+            },
+            {
+                category: "Resort & Beach Gear",
+                icon: "fa-umbrella-beach",
+                items: [
+                    { id: "p13", name: "Resort casual dinner outfits", checked: false },
+                    { id: "p14", name: "Wide-brim sun hats / caps", checked: false },
+                    { id: "p15", name: "Sunglasses (polarized)", checked: false },
+                    { id: "p16", name: "Beach bag / Tote", checked: false },
+                    { id: "p17", name: "Snorkel masks (if bringing own)", checked: false },
+                ]
+            },
+            {
+                category: "Kids & Flight Essentials",
+                icon: "fa-plane-arrival",
+                items: [
+                    { id: "p18", name: "iPads / Headphones loaded with movies", checked: false },
+                    { id: "p19", name: "Kid snacks for flight legs", checked: false },
+                    { id: "p20", name: "First Aid: Dramamine, Band-aids, Tylenol", checked: false },
+                    { id: "p21", name: "Phone chargers / portable power bank", checked: false },
+                ]
+            }
+        ];
+
+        // RENDER MASTER TIMELINE
+        function renderMasterTimeline(filter = 'all') {
+            const container = document.getElementById('master-timeline-container');
+            container.innerHTML = '';
+
+            const filtered = itineraryData.filter(item => {
+                if (filter === 'all') return true;
+                return item.category === filter;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<p class="text-center text-slate-400 text-sm py-8">No days found for selected category.</p>`;
+                return;
+            }
+
+            filtered.forEach(day => {
+                const dayCard = document.createElement('div');
+                dayCard.className = 'border border-slate-200 rounded-2xl overflow-hidden transition-all duration-200 hover:border-slate-300 shadow-sm';
+                
+                let badgeColor = "bg-slate-100 text-slate-700";
+                if (day.category === 'transit') badgeColor = "bg-blue-100 text-blue-800";
+                if (day.category === 'adventure') badgeColor = "bg-emerald-100 text-emerald-800";
+                if (day.category === 'relax') badgeColor = "bg-ocean-100 text-ocean-800";
+                if (day.category === 'dining') badgeColor = "bg-amber-100 text-amber-800";
+
+                dayCard.innerHTML = `
+                    <div onclick="toggleAccordion('day-acc-${day.dayNum}')" class="p-4 sm:p-5 bg-slate-50/80 hover:bg-slate-100/80 cursor-pointer flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 transition">
+                        <div class="flex items-center space-x-3">
+                            <span class="font-bold text-xs bg-slate-900 text-white px-2.5 py-1 rounded-lg">Day ${day.dayNum}</span>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm sm:text-base">${day.title}</h4>
+                                <p class="text-xs text-slate-500">${day.dateStr} • <span class="text-slate-700 font-medium">${day.location}</span></p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3 self-end sm:self-auto">
+                            <span class="text-[11px] font-bold px-2.5 py-1 rounded-full uppercase ${badgeColor}">${day.category}</span>
+                            <i id="icon-day-acc-${day.dayNum}" class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-200"></i>
+                        </div>
+                    </div>
+                    
+                    <div id="day-acc-${day.dayNum}" class="hidden p-4 sm:p-5 border-t border-slate-200 bg-white space-y-3 text-xs">
+                        <p class="font-semibold text-slate-700 text-xs mb-3 italic">"${day.summary}"</p>
+                        <div class="space-y-2">
+                            ${day.details.map(d => `
+                                <div class="flex items-start space-x-3">
+                                    <span class="font-mono font-bold text-slate-900 min-w-[70px] text-[11px] bg-slate-100 px-1.5 py-0.5 rounded">${d.time}</span>
+                                    <span class="text-slate-600 leading-relaxed">${d.text}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(dayCard);
+            });
+        }
+
+        // RENDER HOTEL SPECIFIC VIEWS
+        function renderResortDays() {
+            const bvContainer = document.getElementById('buena-vista-days');
+            const westinContainer = document.getElementById('westin-days');
+            
+            bvContainer.innerHTML = '';
+            westinContainer.innerHTML = '';
+
+            itineraryData.forEach(day => {
+                if (day.dayNum <= 4) {
+                    bvContainer.appendChild(createResortDayCard(day, 'emerald'));
+                } else if (day.dayNum >= 5 && day.dayNum <= 11) {
+                    westinContainer.appendChild(createResortDayCard(day, 'sky'));
+                }
+            });
+        }
+
+        function createResortDayCard(day, colorTheme) {
+            const card = document.createElement('div');
+            card.className = `bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition space-y-3`;
+            
+            card.innerHTML = `
+                <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                    <div>
+                        <span class="text-xs font-bold text-${colorTheme}-700 bg-${colorTheme}-50 px-2 py-0.5 rounded">Day ${day.dayNum}</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-1">${day.title}</h4>
+                        <p class="text-[11px] text-slate-400">${day.dateStr}</p>
+                    </div>
+                </div>
+                <div class="space-y-2 text-xs">
+                    ${day.details.map(d => `
+                        <div class="flex items-start space-x-2">
+                            <span class="font-mono font-bold text-slate-800 text-[10px] bg-slate-100 px-1.5 py-0.5 rounded">${d.time}</span>
+                            <span class="text-slate-600">${d.text}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            return card;
+        }
+
+        // RENDER PACKING CHECKLIST
+        function renderPackingChecklist() {
+            const container = document.getElementById('packing-categories-container');
+            container.innerHTML = '';
+
+            packingData.forEach((cat, catIdx) => {
+                const catCard = document.createElement('div');
+                catCard.className = 'bg-slate-50 rounded-2xl p-5 border border-slate-200';
+                
+                catCard.innerHTML = `
+                    <h4 class="font-bold text-slate-900 text-sm mb-3 flex items-center gap-2 border-b border-slate-200 pb-2">
+                        <i class="fa-solid ${cat.icon} text-amber-600"></i> ${cat.category}
+                    </h4>
+                    <div class="space-y-2.5 text-xs">
+                        ${cat.items.map(item => `
+                            <label class="flex items-start space-x-2.5 cursor-pointer select-none">
+                                <input type="checkbox" id="${item.id}" ${item.checked ? 'checked' : ''} onchange="toggleItem('${item.id}')" class="mt-0.5 rounded border-slate-300 text-amber-600 focus:ring-amber-500 w-4 h-4">
+                                <span class="${item.checked ? 'line-through text-slate-400' : 'text-slate-700'}">${item.name}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(catCard);
+            });
+
+            updatePackingProgress();
+        }
+
+        function toggleItem(id) {
+            packingData.forEach(cat => {
+                cat.items.forEach(item => {
+                    if (item.id === id) {
+                        item.checked = !item.checked;
+                    }
+                });
+            });
+            renderPackingChecklist();
+        }
+
+        function updatePackingProgress() {
+            let total = 0;
+            let checked = 0;
+            packingData.forEach(cat => {
+                cat.items.forEach(item => {
+                    total++;
+                    if (item.checked) checked++;
+                });
+            });
+
+            const pct = Math.round((checked / total) * 100);
+            document.getElementById('packing-progress-bar').style.width = `${pct}%`;
+            document.getElementById('packing-percentage').innerText = `${pct}%`;
+        }
+
+        // ACCORDION TOGGLE
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById(`icon-${id}`);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // TAB SWITCHING LOGIC
+        function switchTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            
+            // Remove active style from buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm', 'font-bold');
+                btn.classList.add('text-slate-600');
+            });
+
+            // Show target view
+            document.getElementById(`view-${tabId}`).classList.remove('hidden');
+
+            // Style active tab
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.add('bg-white', 'text-slate-900', 'shadow-sm', 'font-bold');
+            activeBtn.classList.remove('text-slate-600');
+        }
+
+        // CATEGORY FILTER LOGIC
+        function filterCategory(cat) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-slate-900', 'text-white');
+                btn.classList.add('text-slate-600', 'hover:bg-slate-100');
+            });
+
+            event.currentTarget.classList.add('bg-slate-900', 'text-white');
+            event.currentTarget.classList.remove('text-slate-600', 'hover:bg-slate-100');
+
+            renderMasterTimeline(cat);
+        }
+
+        // INITIALIZATION
+        window.addEventListener('DOMContentLoaded', () => {
+            renderMasterTimeline();
+            renderResortDays();
+            renderPackingChecklist();
+            switchTab('master');
+        });
+    </script>
+</body>
+</html>
