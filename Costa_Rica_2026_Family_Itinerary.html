@@ -341,18 +341,18 @@
         </button>
       </div>
 
-      <!-- ADD CUSTOM ITEM SECTION -->
+      <!-- ADD CUSTOM ITEM SECTION (FIXED LAYOUT) -->
       <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-lg">
         <h3 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Add Custom Item to Checklist</h3>
-        <div class="flex gap-2">
-          <input type="text" id="new-item-input" placeholder="e.g., Jackson's favorite stuffed animal, Extra bug cream..." class="bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 flex-1">
-          <select id="new-item-category" class="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:outline-none focus:border-emerald-500">
+        <div class="flex flex-col sm:flex-row gap-2 w-full">
+          <input type="text" id="new-item-input" placeholder="e.g., Jackson's favorite stuffed animal, Extra bug cream..." class="bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 min-w-0 flex-1">
+          <select id="new-item-category" class="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:outline-none focus:border-emerald-500 shrink-0">
             <option value="docs">Docs & Travel</option>
             <option value="kids">Jackson & Charlotte Gear</option>
             <option value="mountain">Buena Vista Mountain</option>
             <option value="beach">Westin Beach Gear</option>
           </select>
-          <button onclick="addCustomChecklistItem()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition shrink-0">
+          <button onclick="addCustomChecklistItem()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition shrink-0 flex items-center justify-center gap-1.5">
             <i class="fa-solid fa-plus"></i> Add
           </button>
         </div>
@@ -367,22 +367,7 @@
             <i class="fa-solid fa-passport"></i> Pre-Trip & Travel Documents
           </h3>
           <div id="cat-docs" class="space-y-2 text-xs">
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-passports" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-passports" class="cursor-pointer select-none flex-1 font-medium text-slate-200">Valid Passports (4x - check 6-month validity)</label>
-            </div>
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-esim" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-esim" class="cursor-pointer select-none flex-1 font-medium text-slate-200">International Phone / eSIM Data Plan Activated</label>
-            </div>
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-bv-booking" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-bv-booking" class="cursor-pointer select-none flex-1 font-medium text-slate-200">Eco Adventure Activity Slots Confirmed</label>
-            </div>
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-bank-notify" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-bank-notify" class="cursor-pointer select-none flex-1 font-medium text-slate-200">Notify Bank / Credit Cards of Travel</label>
-            </div>
+            <!-- Dynamic rendering handles both default & custom items -->
           </div>
         </div>
 
@@ -392,22 +377,7 @@
             <i class="fa-solid fa-child"></i> Jackson (8) & Charlotte (6) Gear
           </h3>
           <div id="cat-kids" class="space-y-2 text-xs">
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-kids-tablets" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-kids-tablets" class="cursor-pointer select-none flex-1 font-medium text-slate-200">Loaded Tablets & Kid Headphones + Chargers</label>
-            </div>
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-keens" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-keens" class="cursor-pointer select-none flex-1 font-medium text-slate-200">KEENs / Amphibious Water Sandals for Kids</label>
-            </div>
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-kids-rashguards" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-kids-rashguards" class="cursor-pointer select-none flex-1 font-medium text-slate-200">3x UPF 50+ Swim Rashguards Each</label>
-            </div>
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-liquid-iv" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-liquid-iv" class="cursor-pointer select-none flex-1 font-medium text-slate-200">Liquid I.V. Hydration Packets & First-Aid Kit</label>
-            </div>
+            <!-- Dynamic rendering handles both default & custom items -->
           </div>
         </div>
 
@@ -417,18 +387,7 @@
             <i class="fa-solid fa-boot-top-looking"></i> Buena Vista Mountain Gear
           </h3>
           <div id="cat-mountain" class="space-y-2 text-xs">
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-sneakers" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-sneakers" class="cursor-pointer select-none flex-1 font-medium text-slate-200">Closed-Toe Sneakers (Required for Ziplining)</label>
-            </div>
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-dark-swimwear" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-dark-swimwear" class="cursor-pointer select-none flex-1 font-medium text-slate-200">Dark/Old Swimsuits (For Volcanic Mud Baths)</label>
-            </div>
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-bug-spray" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-bug-spray" class="cursor-pointer select-none flex-1 font-medium text-slate-200">Eco-Friendly Bug Spray / Mosquito Wipes</label>
-            </div>
+            <!-- Dynamic rendering handles both default & custom items -->
           </div>
         </div>
 
@@ -438,18 +397,7 @@
             <i class="fa-solid fa-umbrella-beach"></i> Westin Beach & Resort
           </h3>
           <div id="cat-beach" class="space-y-2 text-xs">
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-reef-sunscreen" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-reef-sunscreen" class="cursor-pointer select-none flex-1 font-medium text-slate-200">Reef-Safe Sunscreen (SPF 50+)</label>
-            </div>
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-insulated-bottles" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-insulated-bottles" class="cursor-pointer select-none flex-1 font-medium text-slate-200">4x Reusable Insulated Water Bottles</label>
-            </div>
-            <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-              <input type="checkbox" id="chk-dry-bag" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-              <label for="chk-dry-bag" class="cursor-pointer select-none flex-1 font-medium text-slate-200">Waterproof Dry Bag (For Catamaran & Beach)</label>
-            </div>
+            <!-- Dynamic rendering handles both default & custom items -->
           </div>
         </div>
 
@@ -465,7 +413,7 @@
         </div>
 
         <div class="flex gap-2 mb-4">
-          <input type="text" id="note-input" placeholder="Type a reminder, restaurant idea, or packing note..." class="bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 flex-1">
+          <input type="text" id="note-input" placeholder="Type a reminder, restaurant idea, or packing note..." class="bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 flex-1 min-w-0">
           <button onclick="addFamilyNote()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shrink-0">
             <i class="fa-solid fa-paper-plane"></i> Post Note
           </button>
@@ -650,7 +598,27 @@
     const JSONBIN_MASTER_KEY = "$2a$10$gyf1cvL9qMhe8RWAfr.EQ.HiPfor8Ij3IOLgZOUjQGSoVxiAcGSnm";
 
     // Version key to force sync JSONBin when code changes
-    const CODE_VERSION = "2026.10.27.v1";
+    const CODE_VERSION = "2026.10.27.v2";
+
+    const defaultChecklistItems = [
+      { id: "chk-passports", category: "docs", text: "Valid Passports (4x - check 6-month validity)" },
+      { id: "chk-esim", category: "docs", text: "International Phone / eSIM Data Plan Activated" },
+      { id: "chk-bv-booking", category: "docs", text: "Eco Adventure Activity Slots Confirmed" },
+      { id: "chk-bank-notify", category: "docs", text: "Notify Bank / Credit Cards of Travel" },
+
+      { id: "chk-kids-tablets", category: "kids", text: "Loaded Tablets & Kid Headphones + Chargers" },
+      { id: "chk-keens", category: "kids", text: "KEENs / Amphibious Water Sandals for Kids" },
+      { id: "chk-kids-rashguards", category: "kids", text: "3x UPF 50+ Swim Rashguards Each" },
+      { id: "chk-liquid-iv", category: "kids", text: "Liquid I.V. Hydration Packets & First-Aid Kit" },
+
+      { id: "chk-sneakers", category: "mountain", text: "Closed-Toe Sneakers (Required for Ziplining)" },
+      { id: "chk-dark-swimwear", category: "mountain", text: "Dark/Old Swimsuits (For Volcanic Mud Baths)" },
+      { id: "chk-bug-spray", category: "mountain", text: "Eco-Friendly Bug Spray / Mosquito Wipes" },
+
+      { id: "chk-reef-sunscreen", category: "beach", text: "Reef-Safe Sunscreen (SPF 50+)" },
+      { id: "chk-insulated-bottles", category: "beach", text: "4x Reusable Insulated Water Bottles" },
+      { id: "chk-dry-bag", category: "beach", text: "Waterproof Dry Bag (For Catamaran & Beach)" }
+    ];
 
     let defaultBVData = [
       {
@@ -751,6 +719,7 @@
       itineraryData: { bv: defaultBVData, westin: defaultWestinData },
       checkedItems: [],
       customItems: [],
+      deletedItems: [],
       familyNotes: [
         { id: 101, text: "Remember extra water shoes for the 400m waterslide!", author: "Mom" },
         { id: 102, text: "Reserve Fuego restaurant dinner for night 2 at Westin.", author: "Dad" }
@@ -870,15 +839,45 @@
     }
 
     function renderChecklistAndNotes() {
-      if (familyState.customItems) {
-        familyState.customItems.forEach(item => {
-          if (!document.getElementById(item.id)) {
-            const targetCat = document.getElementById(`cat-${item.category}`) || document.getElementById('cat-docs');
+      const categories = ['docs', 'kids', 'mountain', 'beach'];
+      categories.forEach(cat => {
+        const catContainer = document.getElementById(`cat-${cat}`);
+        if (catContainer) catContainer.innerHTML = '';
+      });
+
+      const deletedSet = new Set(familyState.deletedItems || []);
+
+      // 1. Render default items (if not deleted)
+      defaultChecklistItems.forEach(item => {
+        if (!deletedSet.has(item.id)) {
+          const targetCat = document.getElementById(`cat-${item.category}`);
+          if (targetCat) {
             const itemHTML = `
               <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800" id="wrap-${item.id}">
                 <input type="checkbox" id="${item.id}" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
                 <label for="${item.id}" class="cursor-pointer select-none flex-1 font-medium text-slate-200">${item.text}</label>
-                <button onclick="deleteCustomItem('${item.id}')" class="text-slate-500 hover:text-rose-400 text-xs px-1"><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="deleteChecklistItem('${item.id}', false)" class="text-slate-500 hover:text-rose-400 text-xs px-1 transition" title="Delete item">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            `;
+            targetCat.insertAdjacentHTML('beforeend', itemHTML);
+          }
+        }
+      });
+
+      // 2. Render custom items
+      if (familyState.customItems) {
+        familyState.customItems.forEach(item => {
+          const targetCat = document.getElementById(`cat-${item.category}`) || document.getElementById('cat-docs');
+          if (targetCat) {
+            const itemHTML = `
+              <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800" id="wrap-${item.id}">
+                <input type="checkbox" id="${item.id}" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
+                <label for="${item.id}" class="cursor-pointer select-none flex-1 font-medium text-slate-200">${item.text}</label>
+                <button onclick="deleteChecklistItem('${item.id}', true)" class="text-slate-500 hover:text-rose-400 text-xs px-1 transition" title="Delete custom item">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
               </div>
             `;
             targetCat.insertAdjacentHTML('beforeend', itemHTML);
@@ -886,7 +885,7 @@
         });
       }
 
-      document.querySelectorAll('.custom-checkbox').forEach(cb => cb.checked = false);
+      // 3. Restore checkbox states
       if (familyState.checkedItems) {
         familyState.checkedItems.forEach(id => {
           const el = document.getElementById(id);
@@ -894,6 +893,7 @@
         });
       }
 
+      // 4. Render family notes
       const notesContainer = document.getElementById('notes-container');
       notesContainer.innerHTML = '';
       if (familyState.familyNotes && familyState.familyNotes.length > 0) {
@@ -910,6 +910,20 @@
           notesContainer.insertAdjacentHTML('beforeend', noteCard);
         });
       }
+    }
+
+    function deleteChecklistItem(id, isCustom) {
+      if (isCustom) {
+        familyState.customItems = (familyState.customItems || []).filter(item => item.id !== id);
+      } else {
+        if (!familyState.deletedItems) familyState.deletedItems = [];
+        if (!familyState.deletedItems.includes(id)) {
+          familyState.deletedItems.push(id);
+        }
+      }
+      familyState.checkedItems = (familyState.checkedItems || []).filter(checkedId => checkedId !== id);
+      renderChecklistAndNotes();
+      syncStateToCloud();
     }
 
     function openEditModal(resort, index) {
@@ -996,15 +1010,15 @@
           if (json.record) {
             // Check if cloud version is older than local code version
             if (json.record.version !== CODE_VERSION) {
-              console.log("New itinerary version detected in HTML! Migrating JSONBin...");
+              console.log("New version detected in HTML! Migrating JSONBin...");
               familyState = {
                 version: CODE_VERSION,
                 itineraryData: { bv: defaultBVData, westin: defaultWestinData },
                 checkedItems: json.record.checkedItems || [],
                 customItems: json.record.customItems || [],
+                deletedItems: json.record.deletedItems || [],
                 familyNotes: json.record.familyNotes || familyState.familyNotes
               };
-              // Automatically push fresh itinerary structure to JSONBin
               await syncStateToCloud();
             } else {
               familyState = {
@@ -1012,6 +1026,7 @@
                 itineraryData: json.record.itineraryData || familyState.itineraryData,
                 checkedItems: json.record.checkedItems || [],
                 customItems: json.record.customItems || [],
+                deletedItems: json.record.deletedItems || [],
                 familyNotes: json.record.familyNotes || familyState.familyNotes
               };
             }
@@ -1037,13 +1052,6 @@
 
       input.value = '';
       renderChecklistAndNotes();
-      syncStateToCloud();
-    }
-
-    function deleteCustomItem(id) {
-      familyState.customItems = familyState.customItems.filter(item => item.id !== id);
-      const elem = document.getElementById(`wrap-${id}`);
-      if (elem) elem.remove();
       syncStateToCloud();
     }
 
