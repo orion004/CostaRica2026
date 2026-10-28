@@ -277,7 +277,7 @@
           <div class="space-y-2 text-xs text-slate-300 border-t border-slate-800 pt-3">
             <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-ocean-400"></i> Exclusive Family Club Lounge Access</div>
             <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-ocean-400"></i> $100 Resort Credit for Heavenly Spa</div>
-            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-ocean-400"></i> Westin Kids Club for Jackson (8) & Charlotte (6)</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-ocean-400"></i> Reserva Conchal Golf Club & Sunset Catamaran</div>
           </div>
         </div>
       </div>
@@ -649,6 +649,9 @@
     const JSONBIN_BIN_ID = "6adb904fffd5d16053863e2b";
     const JSONBIN_MASTER_KEY = "$2a$10$gyf1cvL9qMhe8RWAfr.EQ.HiPfor8Ij3IOLgZOUjQGSoVxiAcGSnm";
 
+    // Version key to force sync JSONBin when code changes
+    const CODE_VERSION = "2026.10.27.v1";
+
     let defaultBVData = [
       {
         badge: "Day 1 • Friday, Dec 4",
@@ -669,7 +672,7 @@
       {
         badge: "Day 3 • Sunday, Dec 6",
         title: "Horseback Trail to Waterfall & Cultural Organic Farm",
-        desc: "Take a gentle guided horseback trail ride to Catarata Palenciana, followed by a visit to the resort's working organic farm.",
+        desc: "Take a gentle guided horseback trail ride to Catarata Palenciana, followed by a visit to the resort organic farm.",
         note: "Kid Highlight: Fresh organic sugar cane juice tasting pressed by wooden mills.",
         s1: { title: "Horseback Ride", time: "9:30 AM", desc: "Calm horses for Jackson (8) & Charlotte (6)." },
         s2: { title: "Trapiche Farm Tour", time: "11:30 AM", desc: "Sugar cane pressing, tortillas & coffee tour." }
@@ -678,7 +681,7 @@
         badge: "Day 4 • Monday, Dec 7",
         title: "Rainforest Hanging Bridges & Pacaya Mud Baths",
         desc: "Stroll across suspension bridges high over the canopy in the morning, then take a tractor ride to Pacaya Hot Springs for mud baths!",
-        note: "Kid Highlight: Becoming 'Volcanic Mud Monsters' and soaking in warm thermal pools.",
+        note: "Kid Highlight: Becoming Volcanic Mud Monsters and soaking in warm thermal pools.",
         s1: { title: "Hanging Bridges", time: "10:00 AM", desc: "Guided canopy walk spotting sloths and toucans." },
         s2: { title: "Pacaya Mud Baths", time: "2:00 PM – 5:00 PM", desc: "Volcanic mud painting & thermal river soaking." }
       },
@@ -711,35 +714,27 @@
       },
       {
         badge: "Thursday, Dec 10",
-        title: "Lagoon Pool, Westin Kids Club & Heavenly Spa",
-        desc: "Kids spend an exciting morning at Westin Kids Club, while parents treat themselves to relaxing massages at Heavenly Spa using $100 credit!",
-        note: "$100 Spa Credit applied for parents.",
-        s1: { title: "Westin Kids Club", time: "9:00 AM – 12:00 PM", desc: "Crafts, iguana feeding, and games." },
-        s2: { title: "Heavenly Spa", time: "10:30 AM", desc: "Parent massages with $100 resort credit." }
+        title: "Reserva Conchal Golf Club Championship Round",
+        desc: "Morning round on the Robert Trent Jones II designed 18-hole championship course winding through coastal rainforest and ocean view ridges. Full cart & practice range included.",
+        note: "Green Fees: $210 adult rate, $110 junior rate (under 16). Full club rentals & cart included.",
+        s1: { title: "Morning Tee Time", time: "7:30 AM", desc: "Reserva Conchal Golf Club 18-hole championship round." },
+        s2: { title: "Afternoon Spa & Pool", time: "12:30 PM", desc: "Heavenly Spa parent treatment ($100 credit) & Family Lounge relaxation." }
       },
       {
         badge: "Friday, Dec 11",
         title: "Panache Catamaran Sunset Cruise & Reef Snorkel",
-        desc: "Board Panache Sailing's 50ft luxury catamaran from Flamingo Marina. Sail Guanacaste's coastline, anchor in a quiet bay for guided snorkeling, paddleboarding, open bar, and light meals while watching a Pacific sunset.",
+        desc: "Board Panache Sailing 50ft luxury catamaran from Flamingo Marina. Sail Guanacaste coastline, anchor in a quiet bay for guided snorkeling, paddleboarding, open bar, and light meals while watching a Pacific sunset.",
         note: "Tour Fees: $95/adult, $65/child (under 12). Includes shuttle pickup from Westin lobby.",
         s1: { title: "Shuttle Pickup", time: "1:15 PM", desc: "Private shuttle transfer from Westin lobby to Flamingo Marina." },
         s2: { title: "Sunset Charter", time: "2:00 PM – 6:00 PM", desc: "50ft Panache catamaran cruise, snorkeling, open bar & sunset." }
       },
       {
-        badge: "Saturday, Dec 12",
-        title: "Reserva Conchal Golf Club Championship Round",
-        desc: "Morning round on the Robert Trent Jones II designed 18-hole championship course winding through coastal rainforest and ocean view ridges. Full cart & practice range included.",
-        note: "Green Fees: $210 adult rate, $110 junior rate (under 16). Full club rentals & cart included.",
-        s1: { title: "Morning Tee Time", time: "7:30 AM", desc: "Reserva Conchal Golf Club 18-hole championship round." },
-        s2: { title: "Afternoon Resort", time: "12:30 PM", desc: "Family lunch & afternoon relaxation at Westin lagoon pool." }
-      },
-      {
-        badge: "Sunday, Dec 13",
+        badge: "Dec 12–13 (Sat & Sun)",
         title: "Family Club Lounge Dining & Beach Sports",
-        desc: "Unwind on your final full day with complimentary Family Club Lounge snacks, paddleboarding, volleyball, and fine dining at Westin restaurants including Fuego and Manglar.",
+        desc: "Unwind with complimentary Family Club Lounge snacks, paddleboarding, volleyball, and fine dining at Westin restaurants including Fuego and Manglar.",
         note: "Resort Life: Casual luxury relaxation & packing for travel.",
         s1: { title: "Water Sports", time: "10:00 AM", desc: "Stand-up paddleboarding & sea kayaking." },
-        s2: { title: "Farewell Dinner", time: "6:30 PM", desc: "Fuego Latin fusion or Manglar seafood." }
+        s2: { title: "Fine Dining", time: "6:30 PM", desc: "Fuego Latin fusion or Manglar seafood." }
       },
       {
         badge: "Monday, Dec 14",
@@ -752,6 +747,7 @@
     ];
 
     let familyState = {
+      version: CODE_VERSION,
       itineraryData: { bv: defaultBVData, westin: defaultWestinData },
       checkedItems: [],
       customItems: [],
@@ -998,12 +994,27 @@
         if (res.ok) {
           const json = await res.json();
           if (json.record) {
-            familyState = {
-              itineraryData: json.record.itineraryData || familyState.itineraryData,
-              checkedItems: json.record.checkedItems || [],
-              customItems: json.record.customItems || [],
-              familyNotes: json.record.familyNotes || familyState.familyNotes
-            };
+            // Check if cloud version is older than local code version
+            if (json.record.version !== CODE_VERSION) {
+              console.log("New itinerary version detected in HTML! Migrating JSONBin...");
+              familyState = {
+                version: CODE_VERSION,
+                itineraryData: { bv: defaultBVData, westin: defaultWestinData },
+                checkedItems: json.record.checkedItems || [],
+                customItems: json.record.customItems || [],
+                familyNotes: json.record.familyNotes || familyState.familyNotes
+              };
+              // Automatically push fresh itinerary structure to JSONBin
+              await syncStateToCloud();
+            } else {
+              familyState = {
+                version: json.record.version,
+                itineraryData: json.record.itineraryData || familyState.itineraryData,
+                checkedItems: json.record.checkedItems || [],
+                customItems: json.record.customItems || [],
+                familyNotes: json.record.familyNotes || familyState.familyNotes
+              };
+            }
           }
         }
       } catch (err) {
