@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -333,7 +333,7 @@
             <i class="fa-solid fa-cloud-arrow-up text-emerald-400"></i> Live Family Cloud Sync (JSONBin.io)
           </h2>
           <p class="text-xs text-slate-300 mt-0.5">
-            Checklist checks, custom items, and notes sync in real-time across devices.
+            Editable items, custom reordering, and family notes sync live across devices.
           </p>
         </div>
         <button onclick="syncStateToCloud()" class="text-xs bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl font-bold transition flex items-center gap-1.5 shadow-md shadow-emerald-950/40">
@@ -341,7 +341,7 @@
         </button>
       </div>
 
-      <!-- ADD CUSTOM ITEM SECTION (FIXED LAYOUT) -->
+      <!-- ADD CUSTOM ITEM SECTION -->
       <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-lg">
         <h3 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Add Custom Item to Checklist</h3>
         <div class="flex flex-col sm:flex-row gap-2 w-full">
@@ -367,7 +367,7 @@
             <i class="fa-solid fa-passport"></i> Pre-Trip & Travel Documents
           </h3>
           <div id="cat-docs" class="space-y-2 text-xs">
-            <!-- Dynamic rendering handles both default & custom items -->
+            <!-- Dynamic rendering handles editable & reorderable items -->
           </div>
         </div>
 
@@ -377,7 +377,7 @@
             <i class="fa-solid fa-child"></i> Jackson (8) & Charlotte (6) Gear
           </h3>
           <div id="cat-kids" class="space-y-2 text-xs">
-            <!-- Dynamic rendering handles both default & custom items -->
+            <!-- Dynamic rendering handles editable & reorderable items -->
           </div>
         </div>
 
@@ -387,7 +387,7 @@
             <i class="fa-solid fa-boot-top-looking"></i> Buena Vista Mountain Gear
           </h3>
           <div id="cat-mountain" class="space-y-2 text-xs">
-            <!-- Dynamic rendering handles both default & custom items -->
+            <!-- Dynamic rendering handles editable & reorderable items -->
           </div>
         </div>
 
@@ -397,7 +397,7 @@
             <i class="fa-solid fa-umbrella-beach"></i> Westin Beach & Resort
           </h3>
           <div id="cat-beach" class="space-y-2 text-xs">
-            <!-- Dynamic rendering handles both default & custom items -->
+            <!-- Dynamic rendering handles editable & reorderable items -->
           </div>
         </div>
 
@@ -587,6 +587,26 @@
     </div>
   </div>
 
+  <!-- EDIT CHECKLIST ITEM MODAL -->
+  <div id="edit-checklist-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4 z-50">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 max-w-md w-full space-y-4 shadow-2xl">
+      <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+        <h3 class="text-sm font-bold text-white"><i class="fa-solid fa-pen text-emerald-400 mr-2"></i>Edit Checklist Item</h3>
+        <button onclick="closeEditChecklistModal()" class="text-slate-400 hover:text-white text-xs"><i class="fa-solid fa-xmark text-base"></i></button>
+      </div>
+
+      <div>
+        <label class="text-[11px] font-bold text-slate-400 uppercase block mb-1">Item Text</label>
+        <input type="text" id="modal-item-text" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+      </div>
+
+      <div class="flex justify-end gap-2 pt-2 border-t border-slate-800">
+        <button onclick="closeEditChecklistModal()" class="bg-slate-800 text-slate-300 text-xs font-bold px-4 py-2 rounded-xl">Cancel</button>
+        <button onclick="saveChecklistEdit()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-xl">Save Item</button>
+      </div>
+    </div>
+  </div>
+
   <!-- TOAST NOTIFICATION -->
   <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-slate-900 border border-emerald-500/50 text-emerald-300 text-xs font-bold px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 z-50">
     <i class="fa-solid fa-cloud-check text-emerald-400 text-sm"></i>
@@ -597,7 +617,7 @@
     const JSONBIN_BIN_ID = "6adb904fffd5d16053863e2b";
     const JSONBIN_MASTER_KEY = "$2a$10$gyf1cvL9qMhe8RWAfr.EQ.HiPfor8Ij3IOLgZOUjQGSoVxiAcGSnm";
 
-    // Version key to force sync JSONBin when code changes
+    // Version key to keep cloud state stable
     const CODE_VERSION = "2026.10.27.v2";
 
     const defaultChecklistItems = [
@@ -720,6 +740,8 @@
       checkedItems: [],
       customItems: [],
       deletedItems: [],
+      checklistOverrides: {}, // Stores edited text: { id: "edited text" }
+      categoryOrders: {},     // Stores reordered item IDs per category: { docs: [id1, id2] }
       familyNotes: [
         { id: 101, text: "Remember extra water shoes for the 400m waterslide!", author: "Mom" },
         { id: 102, text: "Reserve Fuego restaurant dinner for night 2 at Westin.", author: "Dad" }
@@ -727,6 +749,7 @@
     };
 
     let currentEditRef = { resort: null, index: null };
+    let currentChecklistEditId = null;
 
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -846,46 +869,88 @@
       });
 
       const deletedSet = new Set(familyState.deletedItems || []);
+      const overrides = familyState.checklistOverrides || {};
 
-      // 1. Render default items (if not deleted)
+      // Build active item list combining default and custom items
+      let allItems = [];
+
       defaultChecklistItems.forEach(item => {
         if (!deletedSet.has(item.id)) {
-          const targetCat = document.getElementById(`cat-${item.category}`);
-          if (targetCat) {
-            const itemHTML = `
-              <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800" id="wrap-${item.id}">
-                <input type="checkbox" id="${item.id}" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-                <label for="${item.id}" class="cursor-pointer select-none flex-1 font-medium text-slate-200">${item.text}</label>
-                <button onclick="deleteChecklistItem('${item.id}', false)" class="text-slate-500 hover:text-rose-400 text-xs px-1 transition" title="Delete item">
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
-              </div>
-            `;
-            targetCat.insertAdjacentHTML('beforeend', itemHTML);
-          }
+          allItems.push({
+            id: item.id,
+            category: item.category,
+            text: overrides[item.id] || item.text,
+            isCustom: false
+          });
         }
       });
 
-      // 2. Render custom items
       if (familyState.customItems) {
         familyState.customItems.forEach(item => {
-          const targetCat = document.getElementById(`cat-${item.category}`) || document.getElementById('cat-docs');
-          if (targetCat) {
-            const itemHTML = `
-              <div class="flex items-center gap-3 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800" id="wrap-${item.id}">
-                <input type="checkbox" id="${item.id}" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer">
-                <label for="${item.id}" class="cursor-pointer select-none flex-1 font-medium text-slate-200">${item.text}</label>
-                <button onclick="deleteChecklistItem('${item.id}', true)" class="text-slate-500 hover:text-rose-400 text-xs px-1 transition" title="Delete custom item">
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
-              </div>
-            `;
-            targetCat.insertAdjacentHTML('beforeend', itemHTML);
-          }
+          allItems.push({
+            id: item.id,
+            category: item.category || 'docs',
+            text: overrides[item.id] || item.text,
+            isCustom: true
+          });
         });
       }
 
-      // 3. Restore checkbox states
+      // Group items by category and sort according to categoryOrders
+      categories.forEach(cat => {
+        let catItems = allItems.filter(i => i.category === cat);
+        const orderArr = (familyState.categoryOrders && familyState.categoryOrders[cat]) || [];
+
+        if (orderArr.length > 0) {
+          catItems.sort((a, b) => {
+            let idxA = orderArr.indexOf(a.id);
+            let idxB = orderArr.indexOf(b.id);
+            if (idxA === -1) idxA = 999;
+            if (idxB === -1) idxB = 999;
+            return idxA - idxB;
+          });
+        }
+
+        const targetCat = document.getElementById(`cat-${cat}`);
+        if (!targetCat) return;
+
+        catItems.forEach((item, index) => {
+          const itemHTML = `
+            <div class="flex items-center gap-2 bg-slate-950/60 p-2 rounded-xl border border-slate-800 group hover:border-slate-700 transition" id="wrap-${item.id}">
+              <!-- Reorder Buttons -->
+              <div class="flex flex-col gap-0.5 shrink-0 text-[10px] text-slate-500">
+                <button onclick="reorderItem('${cat}', ${index}, -1)" class="hover:text-amber-400 p-0.5 leading-none transition" title="Move Up">
+                  <i class="fa-solid fa-chevron-up"></i>
+                </button>
+                <button onclick="reorderItem('${cat}', ${index}, 1)" class="hover:text-amber-400 p-0.5 leading-none transition" title="Move Down">
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+
+              <!-- Checkbox -->
+              <input type="checkbox" id="${item.id}" class="custom-checkbox h-4 w-4 rounded text-emerald-500 border-slate-700 bg-slate-900 focus:ring-0 cursor-pointer shrink-0 ml-1">
+
+              <!-- Label -->
+              <label for="${item.id}" class="cursor-pointer select-none flex-1 font-medium text-slate-200 text-xs leading-snug break-words" id="text-${item.id}">
+                ${item.text}
+              </label>
+
+              <!-- Actions: Edit & Delete -->
+              <div class="flex items-center gap-1 shrink-0 opacity-80 group-hover:opacity-100 transition">
+                <button onclick="openEditChecklistModal('${item.id}', '${item.isCustom}')" class="text-slate-400 hover:text-emerald-400 text-xs p-1" title="Edit text">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <button onclick="deleteChecklistItem('${item.id}', ${item.isCustom})" class="text-slate-400 hover:text-rose-400 text-xs p-1" title="Delete item">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </div>
+          `;
+          targetCat.insertAdjacentHTML('beforeend', itemHTML);
+        });
+      });
+
+      // Restore checked states
       if (familyState.checkedItems) {
         familyState.checkedItems.forEach(id => {
           const el = document.getElementById(id);
@@ -893,7 +958,7 @@
         });
       }
 
-      // 4. Render family notes
+      // Render family notes
       const notesContainer = document.getElementById('notes-container');
       notesContainer.innerHTML = '';
       if (familyState.familyNotes && familyState.familyNotes.length > 0) {
@@ -910,6 +975,65 @@
           notesContainer.insertAdjacentHTML('beforeend', noteCard);
         });
       }
+    }
+
+    function reorderItem(category, index, direction) {
+      const targetCat = document.getElementById(`cat-${category}`);
+      if (!targetCat) return;
+
+      const itemsInCat = Array.from(targetCat.querySelectorAll('[id^="wrap-"]')).map(el => el.id.replace('wrap-', ''));
+      const newIndex = index + direction;
+
+      if (newIndex < 0 || newIndex >= itemsInCat.length) return;
+
+      // Swap elements
+      const temp = itemsInCat[index];
+      itemsInCat[index] = itemsInCat[newIndex];
+      itemsInCat[newIndex] = temp;
+
+      if (!familyState.categoryOrders) familyState.categoryOrders = {};
+      familyState.categoryOrders[category] = itemsInCat;
+
+      renderChecklistAndNotes();
+      syncStateToCloud();
+    }
+
+    function openEditChecklistModal(id, isCustomStr) {
+      currentChecklistEditId = id;
+      const label = document.getElementById(`text-${id}`);
+      if (!label) return;
+
+      document.getElementById('modal-item-text').value = label.innerText.trim();
+      const modal = document.getElementById('edit-checklist-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeEditChecklistModal() {
+      const modal = document.getElementById('edit-checklist-modal');
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+      currentChecklistEditId = null;
+    }
+
+    function saveChecklistEdit() {
+      if (!currentChecklistEditId) return;
+
+      const newText = document.getElementById('modal-item-text').value.trim();
+      if (!newText) return;
+
+      if (!familyState.checklistOverrides) familyState.checklistOverrides = {};
+      familyState.checklistOverrides[currentChecklistEditId] = newText;
+
+      // Also update custom item array if applicable
+      if (familyState.customItems) {
+        const customItem = familyState.customItems.find(i => i.id === currentChecklistEditId);
+        if (customItem) customItem.text = newText;
+      }
+
+      closeEditChecklistModal();
+      renderChecklistAndNotes();
+      syncStateToCloud();
     }
 
     function deleteChecklistItem(id, isCustom) {
@@ -1008,7 +1132,6 @@
         if (res.ok) {
           const json = await res.json();
           if (json.record) {
-            // Check if cloud version is older than local code version
             if (json.record.version !== CODE_VERSION) {
               console.log("New version detected in HTML! Migrating JSONBin...");
               familyState = {
@@ -1017,6 +1140,8 @@
                 checkedItems: json.record.checkedItems || [],
                 customItems: json.record.customItems || [],
                 deletedItems: json.record.deletedItems || [],
+                checklistOverrides: json.record.checklistOverrides || {},
+                categoryOrders: json.record.categoryOrders || {},
                 familyNotes: json.record.familyNotes || familyState.familyNotes
               };
               await syncStateToCloud();
@@ -1027,6 +1152,8 @@
                 checkedItems: json.record.checkedItems || [],
                 customItems: json.record.customItems || [],
                 deletedItems: json.record.deletedItems || [],
+                checklistOverrides: json.record.checklistOverrides || {},
+                categoryOrders: json.record.categoryOrders || {},
                 familyNotes: json.record.familyNotes || familyState.familyNotes
               };
             }
