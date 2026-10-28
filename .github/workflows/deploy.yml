@@ -24,13 +24,14 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Encrypt HTML with Pagecrypt
+      - name: Create Build Directory & Encrypt HTML
         run: |
-          npx pagecrypt Costa_Rica_2026_Family_Itinerary.html index.html "${{ secrets.PAGE_PASSWORD }}"
+          mkdir dist
+          npx pagecrypt Costa_Rica_2026_Family_Itinerary.html dist/index.html "${{ secrets.PAGE_PASSWORD }}"
 
       - name: Deploy to GitHub Pages Branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: ./dist
           publish_branch: gh-pages
